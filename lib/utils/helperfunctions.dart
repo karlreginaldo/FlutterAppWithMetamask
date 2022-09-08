@@ -16,7 +16,7 @@ String generateSessionMessage(String accountAddress) {
   String message =
       'Hello $accountAddress, welcome to our app. By signing this message you agree to learn and have fun with blockchain';
   print(message);
-  
+
   var hash = keccakUtf8(message);
   final hashString = '0x${bytesToHex(hash).toString()}';
 
