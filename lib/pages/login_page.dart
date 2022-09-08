@@ -30,7 +30,8 @@ class _LoginPageState extends State<LoginPage> {
       try {
         var session = await connector.createSession(onDisplayUri: (uri) async {
           _uri = uri;
-          await launchUrlString(uri, mode: LaunchMode.externalApplication);
+          print('URI: $uri');
+          await launchUrlString(uri);
         });
         print(session.accounts[0]);
         print(session.chainId);
@@ -66,6 +67,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   getNetworkName(chainId) {
+    print('Chain ID: $chainId');
+
     switch (chainId) {
       case 1:
         return 'Ethereum Mainnet';
